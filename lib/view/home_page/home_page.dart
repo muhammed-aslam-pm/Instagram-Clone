@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/database/database.dart';
 import 'package:instagram_clone/utils/color_constant/color_constants.dart';
+import 'package:instagram_clone/view/home_page/widgets/story_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -17,17 +18,19 @@ class HomePage extends StatelessWidget {
               icon: Icon(
                 Icons.favorite_border_outlined,
                 color: ColorConstants.primaryBlack,
+                size: 30,
               )),
-          const Stack(children: [
+          Stack(children: [
             Padding(
-              padding: EdgeInsets.only(right: 12, top: 15),
+              padding: const EdgeInsets.only(right: 12, top: 15),
               child: Image(
-                image: AssetImage("assets/images/messenger.png"),
-                height: 23,
-                width: 23,
+                image: const AssetImage("assets/images/messenger.png"),
+                height: 26,
+                width: 26,
+                color: ColorConstants.primaryBlack,
               ),
             ),
-            Positioned(
+            const Positioned(
                 right: 8,
                 top: 8,
                 child: CircleAvatar(
@@ -40,44 +43,91 @@ class HomePage extends StatelessWidget {
                 ))
           ])
         ],
-        title: Image.asset("assets/images/Instagram Logo.png"),
+        title: SizedBox(
+          height: 35,
+          child: Image.asset(
+            "assets/images/Instagram Logo.png",
+            color: ColorConstants.primaryBlack,
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: List.generate(
-                Database.userDetailes.length,
-                (index) => Padding(
-                  padding: const EdgeInsets.only(left: 8),
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 35,
-                        backgroundImage:
-                            const AssetImage("assets/images/instagram (1).png"),
-                        child: CircleAvatar(
-                          radius: 32,
-                          backgroundColor: Colors.white,
-                          child: CircleAvatar(
-                            radius: 29,
-                            backgroundImage: AssetImage(
-                                Database.userDetailes[index]['ProfilePhoto']),
-                          ),
-                        ),
-                      ),
-                      Text(Database.userDetailes[index]['Name'])
-                    ],
-                  ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: List.generate(
+                  Database.userDetailes.length,
+                  (index) => StoryCard(index: index),
                 ),
               ),
             ),
-          )
-        ],
+            Container(
+              height: 600,
+              width: double.infinity,
+              color: Colors.grey,
+              child: Column(
+                children: [
+                  ListTile(
+                    leading: CircleAvatar(),
+                    title: Text("Aslam"),
+                    subtitle: Text("Tokiyo ,Japan"),
+                    trailing: Icon(Icons.more_vert),
+                  ),
+                  Container(
+                    height: 375,
+                    width: double.infinity,
+                    color: Colors.blue,
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Icon(
+                        Icons.favorite_border,
+                        size: 35,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Image.asset(
+                        "assets/images/bubble-chat.png",
+                        height: 32,
+                        width: 32,
+                        color: ColorConstants.primaryBlack,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Image.asset(
+                        "assets/images/send.png",
+                        height: 32,
+                        width: 32,
+                        color: ColorConstants.primaryBlack,
+                      ),
+                      SizedBox(
+                        width: 230,
+                      ),
+                      Icon(
+                        Icons.bookmark_border,
+                        size: 35,
+                      )
+                    ],
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
