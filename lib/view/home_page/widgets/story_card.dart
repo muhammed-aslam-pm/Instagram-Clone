@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../database/database.dart';
 
 class StoryCard extends StatelessWidget {
-  const StoryCard({super.key, required this.index});
+  const StoryCard({super.key, required this.ProfilePhoto, required this.Name});
 
-  final int index;
+  final String ProfilePhoto;
+  final String Name;
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +23,11 @@ class StoryCard extends StatelessWidget {
               backgroundColor: Colors.white,
               child: CircleAvatar(
                 radius: 38,
-                backgroundImage:
-                    AssetImage(Database.userDetailes[index]['ProfilePhoto']),
+                backgroundImage: AssetImage(ProfilePhoto),
               ),
             ),
           ),
-          Text(Database.userDetailes[index]['Name'])
+          Text(Name)
         ],
       ),
     );

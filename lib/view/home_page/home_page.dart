@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/database/database.dart';
 import 'package:instagram_clone/utils/color_constant/color_constants.dart';
+import 'package:instagram_clone/view/home_page/widgets/post_card.dart';
 import 'package:instagram_clone/view/home_page/widgets/story_card.dart';
 
 class HomePage extends StatelessWidget {
@@ -63,68 +64,26 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: List.generate(
                   Database.userDetailes.length,
-                  (index) => StoryCard(index: index),
+                  (index) => StoryCard(
+                      Name: Database.userDetailes[index]["Name"],
+                      ProfilePhoto: Database.userDetailes[index]
+                          ["ProfilePhoto"]),
                 ),
               ),
             ),
-            Container(
-              height: 600,
-              width: double.infinity,
-              color: Colors.grey,
-              child: Column(
-                children: [
-                  ListTile(
-                    leading: CircleAvatar(),
-                    title: Text("Aslam"),
-                    subtitle: Text("Tokiyo ,Japan"),
-                    trailing: Icon(Icons.more_vert),
-                  ),
-                  Container(
-                    height: 375,
-                    width: double.infinity,
-                    color: Colors.blue,
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Icon(
-                        Icons.favorite_border,
-                        size: 35,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Image.asset(
-                        "assets/images/bubble-chat.png",
-                        height: 32,
-                        width: 32,
-                        color: ColorConstants.primaryBlack,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Image.asset(
-                        "assets/images/send.png",
-                        height: 32,
-                        width: 32,
-                        color: ColorConstants.primaryBlack,
-                      ),
-                      SizedBox(
-                        width: 230,
-                      ),
-                      Icon(
-                        Icons.bookmark_border,
-                        size: 35,
-                      )
-                    ],
-                  )
-                ],
-              ),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) => PostCard(
+                  name: Database.feed[index]["Name"],
+                  location: Database.feed[index]["Location"],
+                  dp: Database.feed[index]["ProfilePhoto"],
+                  photo: Database.feed[index]["Image"],
+                  description: Database.feed[index]["Description"],
+                  likes: Database.feed[index]["Likes"],
+                  comments: Database.feed[index]["Comments"],
+                  time: Database.feed[index]["Time"]),
+              itemCount: Database.feed.length,
             )
           ],
         ),

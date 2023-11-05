@@ -32,4 +32,47 @@ class Database {
     {"Name": "Rahul", "ProfilePhoto": "assets/images/dp4.png"},
     {"Name": "Anushka", "ProfilePhoto": "assets/images/dp5.png"},
   ];
+  static List<Map> feed = [
+    {
+      "ProfilePhoto": "assets/images/feed dp1.png",
+      "Name": "joshua_l",
+      "Location": "Tokiyo ,Japan",
+      "Image": "assets/images/feed image1.png",
+      "Likes": 2331,
+      "Description":
+          " The game in Japan was amazing and I want to share some photos",
+      "Comments": 45,
+      "Time": 20
+    },
+    {
+      "ProfilePhoto": "assets/images/dp2.png",
+      "Name": "dayana__2",
+      "Location": "Home",
+      "Image": "assets/images/feed image4.png",
+      "Likes": 98841,
+      "Description": " Solotude 🥀",
+      "Comments": 466,
+      "Time": 30
+    },
+    {
+      "ProfilePhoto": "assets/images/dp3.png",
+      "Name": "arjun_official",
+      "Location": "Delhi , India",
+      "Image": "assets/images/feed image3.png",
+      "Likes": 2331,
+      "Description": " Somewhere under the dark sky",
+      "Comments": 12,
+      "Time": 60
+    },
+    {
+      "ProfilePhoto": "assets/images/dp4.png",
+      "Name": "rahul_cr",
+      "Location": "keral , India",
+      "Image": "assets/images/feed image2.png",
+      "Likes": 31,
+      "Description": " ",
+      "Comments": 2,
+      "Time": 10
+    },
+  ];
 }
