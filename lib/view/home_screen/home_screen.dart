@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/database/database.dart';
 import 'package:instagram_clone/utils/color_constant/color_constants.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,6 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Database.Pages[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: selectedIndex,
@@ -40,20 +42,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 label: "search"),
             const BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.add_box_outlined,
+                icon: Image(
+                  image: AssetImage("assets/images/more.png"),
+                  height: 28,
                 ),
                 label: "Add"),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  selectedIndex == 3 ? Icons.favorite : Icons.favorite_border,
+            const BottomNavigationBarItem(
+                icon: Image(
+                  image: AssetImage("assets/images/reels.png"),
+                  height: 28,
                 ),
                 label: "fav"),
             const BottomNavigationBarItem(
-                icon: CircleAvatar(
-                  radius: 13,
-                ),
-                label: "fav"),
+              icon: CircleAvatar(
+                radius: 13,
+              ),
+              label: "fav",
+            ),
           ]),
     );
   }
