@@ -19,9 +19,13 @@ class _HomeScreenState extends State<HomeScreen> {
           type: BottomNavigationBarType.fixed,
           currentIndex: selectedIndex,
           selectedIconTheme: IconThemeData(
-              color: ColorConstants.primaryBlack, size: 30, fill: 0.1),
+            color: ColorConstants.primaryBlack,
+            size: 30,
+          ),
           unselectedIconTheme: IconThemeData(
-              color: ColorConstants.primaryBlack, size: 30, fill: 0.1),
+            color: ColorConstants.primaryBlack,
+            size: 30,
+          ),
           showUnselectedLabels: false,
           showSelectedLabels: false,
           onTap: (value) {

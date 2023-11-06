@@ -32,16 +32,17 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const Positioned(
-                right: 8,
-                top: 8,
-                child: CircleAvatar(
-                  radius: 9,
-                  backgroundColor: Colors.red,
-                  child: Text(
-                    "10",
-                    style: TextStyle(color: Colors.white, fontSize: 12),
-                  ),
-                ))
+              right: 8,
+              top: 8,
+              child: CircleAvatar(
+                radius: 9,
+                backgroundColor: Colors.red,
+                child: Text(
+                  "10",
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                ),
+              ),
+            )
           ])
         ],
         title: SizedBox(
@@ -75,14 +76,15 @@ class HomePage extends StatelessWidget {
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) => PostCard(
-                  name: Database.feed[index]["Name"],
-                  location: Database.feed[index]["Location"],
-                  dp: Database.feed[index]["ProfilePhoto"],
-                  photo: Database.feed[index]["Image"],
-                  description: Database.feed[index]["Description"],
-                  likes: Database.feed[index]["Likes"],
-                  comments: Database.feed[index]["Comments"],
-                  time: Database.feed[index]["Time"]),
+                name: Database.feed[index]["Name"],
+                location: Database.feed[index]["Location"],
+                dp: Database.feed[index]["ProfilePhoto"],
+                photo: Database.feed[index]["Image"],
+                description: Database.feed[index]["Description"],
+                likes: Database.feed[index]["Likes"],
+                comments: Database.feed[index]["Comments"],
+                time: Database.feed[index]["Time"],
+              ),
               itemCount: Database.feed.length,
             )
           ],

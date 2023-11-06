@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../utils/color_constant/color_constants.dart';
 
-class PostCard extends StatelessWidget {
-  const PostCard(
+class PostCard extends StatefulWidget {
+  PostCard(
       {super.key,
       required this.name,
       required this.location,
@@ -24,6 +24,13 @@ class PostCard extends StatelessWidget {
   final int time;
 
   @override
+  State<PostCard> createState() => _PostCardState();
+}
+
+class _PostCardState extends State<PostCard> {
+  bool isLiked = false;
+  bool isSaved = false;
+  @override
   Widget build(BuildContext context) {
     return Container(
       height: 600,
@@ -40,7 +47,7 @@ class PostCard extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 18,
-                    backgroundImage: AssetImage(dp),
+                    backgroundImage: AssetImage(widget.dp),
                   ),
                   SizedBox(
                     width: 10,
@@ -56,12 +63,12 @@ class PostCard extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                name,
+                                widget.name,
                                 style: TextStyle(
                                     fontSize: 15, fontWeight: FontWeight.w600),
                               ),
                               Text(
-                                location,
+                                widget.location,
                                 style: TextStyle(
                                     fontSize: 12, fontWeight: FontWeight.w400),
                               )
@@ -78,8 +85,8 @@ class PostCard extends StatelessWidget {
             height: 375,
             width: double.infinity,
             decoration: BoxDecoration(
-              image:
-                  DecorationImage(image: AssetImage(photo), fit: BoxFit.cover),
+              image: DecorationImage(
+                  image: AssetImage(widget.photo), fit: BoxFit.cover),
             ),
           ),
           SizedBox(
@@ -88,14 +95,21 @@ class PostCard extends StatelessWidget {
           Row(
             children: [
               SizedBox(
-                width: 10,
+                width: 3,
               ),
-              Icon(
-                Icons.favorite_border,
-                size: 33,
+              IconButton(
+                onPressed: () {
+                  isLiked = !isLiked;
+                  setState(() {});
+                },
+                icon: Icon(
+                  isLiked ? Icons.favorite : Icons.favorite_border,
+                  size: 32,
+                  color: isLiked ? Colors.red : ColorConstants.primaryBlack,
+                ),
               ),
               SizedBox(
-                width: 10,
+                width: 3,
               ),
               Image.asset(
                 "assets/images/bubble-chat.png",
@@ -115,19 +129,25 @@ class PostCard extends StatelessWidget {
               SizedBox(
                 width: 220,
               ),
-              Icon(
-                Icons.bookmark_border,
-                size: 35,
+              IconButton(
+                onPressed: () {
+                  isSaved = !isSaved;
+                  setState(() {});
+                },
+                icon: Icon(
+                  isSaved ? Icons.bookmark : Icons.bookmark_border,
+                  size: 35,
+                ),
               )
             ],
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("$likes likes"),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text("${widget.likes} likes"),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Text("$name $description"),
+            padding: const EdgeInsets.only(top: 5, right: 8, left: 8),
+            child: Text("${widget.name} ${widget.description}"),
           ),
           TextButton(
               style: ButtonStyle(
@@ -135,11 +155,11 @@ class PostCard extends StatelessWidget {
                     MaterialStatePropertyAll(ColorConstants.primaryBlack),
               ),
               onPressed: () {},
-              child: Text("View all $comments Comments")),
+              child: Text("View all ${widget.comments} Comments")),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
-              "$time mintes ago",
+              "${widget.time} mintes ago",
               style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
             ),
           )
