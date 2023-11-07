@@ -75,4 +75,28 @@ class Database {
       "Time": 10
     },
   ];
+  static List<String> searchImages = [
+    "assets/images/sf 1.png",
+    "assets/images/sf2.png",
+    "assets/images/sf3.png",
+    "assets/images/sf4.png",
+    "assets/images/sf5.png",
+    "assets/images/sf2.png",
+    "assets/images/sf7.png",
+    "assets/images/sf8.png",
+    "assets/images/sf9.png",
+    "assets/images/sf2.png",
+    "assets/images/sf10.png",
+    "assets/images/sf11.png",
+    "assets/images/sf12.png",
+    "assets/images/sf3.png",
+    "assets/images/sf14.png",
+    "assets/images/sf15.png",
+    "assets/images/sf16.png",
+    "assets/images/sf17.png",
+    "assets/images/sf18.png",
+    "assets/images/sf19.png",
+    "assets/images/sf20.png",
+    "assets/images/feed image1.png",
+  ];
 }
