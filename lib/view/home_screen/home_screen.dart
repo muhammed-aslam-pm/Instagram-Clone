@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/database/database.dart';
 import 'package:instagram_clone/utils/color_constant/color_constants.dart';
+import 'package:instagram_clone/view/add_screen/add-screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -45,10 +46,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   size: selectedIndex == 1 ? 35 : 30,
                 ),
                 label: "search"),
-            const BottomNavigationBarItem(
-                icon: Image(
-                  image: AssetImage("assets/images/more.png"),
-                  height: 26,
+            BottomNavigationBarItem(
+                icon: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AddScreen(),
+                        ));
+                  },
+                  child: Image(
+                    image: AssetImage("assets/images/more.png"),
+                    height: 26,
+                  ),
                 ),
                 label: "Add"),
             const BottomNavigationBarItem(
