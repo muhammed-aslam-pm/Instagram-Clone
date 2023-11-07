@@ -48,13 +48,13 @@ class _HomeScreenState extends State<HomeScreen> {
             const BottomNavigationBarItem(
                 icon: Image(
                   image: AssetImage("assets/images/more.png"),
-                  height: 28,
+                  height: 26,
                 ),
                 label: "Add"),
             const BottomNavigationBarItem(
                 icon: Image(
                   image: AssetImage("assets/images/reels.png"),
-                  height: 28,
+                  height: 26,
                 ),
                 label: "fav"),
             const BottomNavigationBarItem(
