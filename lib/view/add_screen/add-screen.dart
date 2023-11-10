@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/database/database.dart';
 import 'package:instagram_clone/utils/color_constant/color_constants.dart';
 
 class AddScreen extends StatelessWidget {
@@ -50,7 +51,11 @@ class AddScreen extends StatelessWidget {
               Container(
                 height: 375,
                 width: double.infinity,
-                color: Colors.grey,
+                decoration: BoxDecoration(
+                    color: Colors.grey,
+                    image: DecorationImage(
+                        image: AssetImage(Database.searchImages[0]),
+                        fit: BoxFit.cover)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -154,10 +159,13 @@ class AddScreen extends StatelessWidget {
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.all(1.0),
                   child: Container(
-                    color: Colors.grey,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(Database.searchImages[index]),
+                            fit: BoxFit.cover)),
                   ),
                 ),
-                itemCount: 30,
+                itemCount: Database.searchImages.length,
               )
             ],
           ),

@@ -99,4 +99,12 @@ class Database {
     "assets/images/sf20.png",
     "assets/images/feed image1.png",
   ];
+  static Map ProfilDetailes = {
+    "user_id": "aslam____mhd",
+    "user_name": "Aslam",
+    "no_of_posts": "0",
+    "no_of_followers": "1.2M",
+    "no_of_following": "873",
+    "profile_photo": "assets/images/sf3.png",
+  };
 }

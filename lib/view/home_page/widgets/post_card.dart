@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/utils/image_constant/image_constant.dart';
 
 import '../../../utils/color_constant/color_constants.dart';
 
@@ -112,7 +113,7 @@ class _PostCardState extends State<PostCard> {
                 width: 3,
               ),
               Image.asset(
-                "assets/images/bubble-chat.png",
+                ImageConstant.commentsButton,
                 height: 30,
                 width: 30,
                 color: ColorConstants.primaryBlack,
@@ -121,7 +122,7 @@ class _PostCardState extends State<PostCard> {
                 width: 10,
               ),
               Image.asset(
-                "assets/images/send.png",
+                ImageConstant.shareButton,
                 height: 30,
                 width: 30,
                 color: ColorConstants.primaryBlack,

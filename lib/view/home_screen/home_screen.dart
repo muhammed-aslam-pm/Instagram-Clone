@@ -61,12 +61,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 label: "Add"),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
                 icon: Image(
                   image: AssetImage("assets/images/reels.png"),
                   height: 26,
                 ),
-                label: "fav"),
+                label: "reels",
+                backgroundColor: ColorConstants.primaryBlack),
             const BottomNavigationBarItem(
               icon: CircleAvatar(
                 radius: 13,
