@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/database/database.dart';
 import 'package:instagram_clone/utils/color_constant/color_constants.dart';
+import 'package:instagram_clone/utils/image_constant/image_constant.dart';
 import 'package:instagram_clone/view/add_screen/add-screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -56,20 +57,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         ));
                   },
                   child: Image(
-                    image: AssetImage("assets/images/more.png"),
+                    image: AssetImage(ImageConstant.addIcon),
                     height: 26,
                   ),
                 ),
                 label: "Add"),
             BottomNavigationBarItem(
                 icon: Image(
-                  image: AssetImage("assets/images/reels.png"),
+                  image: AssetImage(ImageConstant.reelsIcon),
                   height: 26,
                 ),
                 label: "reels",
                 backgroundColor: ColorConstants.primaryBlack),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: CircleAvatar(
+                backgroundImage:
+                    AssetImage(Database.ProfilDetailes["profile_photo"]),
                 radius: 13,
               ),
               label: "fav",

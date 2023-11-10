@@ -61,16 +61,46 @@ class HomePage extends StatelessWidget {
           children: [
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: List.generate(
-                  Database.userDetailes.length,
-                  (index) => StoryCard(
-                      Name: Database.userDetailes[index]["Name"],
-                      ProfilePhoto: Database.userDetailes[index]
-                          ["ProfilePhoto"]),
+              child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                Column(
+                  children: [
+                    Container(
+                      height: 84,
+                      width: 84,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.amber,
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  Database.ProfilDetailes["profile_photo"]))),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          CircleAvatar(
+                            radius: 15,
+                            backgroundColor: ColorConstants.primaryWhite,
+                            child: CircleAvatar(
+                              radius: 12,
+                              child: Icon(Icons.add),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Text("Your Story")
+                  ],
                 ),
-              ),
+                Row(
+                  children: List.generate(
+                    Database.userDetailes.length,
+                    (index) => StoryCard(
+                        Name: Database.userDetailes[index]["Name"],
+                        ProfilePhoto: Database.userDetailes[index]
+                            ["ProfilePhoto"]),
+                  ),
+                )
+              ]),
             ),
             ListView.builder(
               shrinkWrap: true,

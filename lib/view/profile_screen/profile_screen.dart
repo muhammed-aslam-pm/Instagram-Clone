@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/database/database.dart';
 import 'package:instagram_clone/utils/color_constant/color_constants.dart';
+import 'package:instagram_clone/utils/image_constant/image_constant.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -31,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
         ),
         actions: [
           Image(
-            image: AssetImage("assets/images/more.png"),
+            image: AssetImage(ImageConstant.addIcon),
             height: 25,
             width: 25,
           ),
@@ -193,7 +194,34 @@ class ProfileScreen extends StatelessWidget {
                   )
                 ],
               ),
-            )
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List.generate(
+                  Database.profilePhotos.length,
+                  (index) => Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: CircleAvatar(
+                      radius: 35,
+                      backgroundColor: Colors.grey,
+                      child: CircleAvatar(
+                        radius: 34,
+                        backgroundColor: ColorConstants.primaryWhite,
+                        child: CircleAvatar(
+                          radius: 32,
+                          backgroundImage:
+                              AssetImage(Database.profilePhotos[index]),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

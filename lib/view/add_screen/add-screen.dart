@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/database/database.dart';
 import 'package:instagram_clone/utils/color_constant/color_constants.dart';
 
-class AddScreen extends StatelessWidget {
+class AddScreen extends StatefulWidget {
   const AddScreen({super.key});
 
+  @override
+  State<AddScreen> createState() => _AddScreenState();
+}
+
+class _AddScreenState extends State<AddScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,29 +19,32 @@ class AddScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                height: 60,
-                width: double.infinity,
+                padding: EdgeInsetsDirectional.all(10),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(
-                      width: 10,
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            setState(() {});
+                          },
+                          icon: Icon(
+                            Icons.close,
+                            color: ColorConstants.primaryBlack,
+                            size: 35,
+                          ),
+                        ),
+                        Text(
+                          "New Post",
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: ColorConstants.primaryBlack,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
                     ),
-                    Icon(
-                      Icons.close,
-                      color: ColorConstants.primaryBlack,
-                      size: 35,
-                    ),
-                    SizedBox(
-                      width: 25,
-                    ),
-                    Text(
-                      "New Post",
-                      style: TextStyle(
-                          fontSize: 20,
-                          color: ColorConstants.primaryBlack,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    SizedBox(width: 165),
                     TextButton(
                       onPressed: () {},
                       child: Text(

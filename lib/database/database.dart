@@ -22,7 +22,7 @@ class Database {
   ];
 
   static List<Map> userDetailes = [
-    {"Name": "Your Story", "ProfilePhoto": "assets/images/dp1.png"},
+    {"Name": "John", "ProfilePhoto": "assets/images/dp1.png"},
     {"Name": "Dayana", "ProfilePhoto": "assets/images/dp2.png"},
     {"Name": "Arjun", "ProfilePhoto": "assets/images/dp3.png"},
     {"Name": "Rahul", "ProfilePhoto": "assets/images/dp4.png"},
