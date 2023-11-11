@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/view/add_screen/add-screen.dart';
 import 'package:instagram_clone/view/explore_screen/explore_screen.dart';
 import 'package:instagram_clone/view/home_page/home_page.dart';
+import 'package:instagram_clone/view/home_screen_pages/home_screen_pages.dart';
 import 'package:instagram_clone/view/profile_screen/profile_screen.dart';
 import 'package:instagram_clone/view/reels_screen/reels_screen.dart';
 
 class Database {
   static List<Widget> Pages = [
-    const HomePage(),
+    const HomeScreenPages(),
     const ExploreScreen(),
     const AddScreen(),
     const ReelsScreen(),
