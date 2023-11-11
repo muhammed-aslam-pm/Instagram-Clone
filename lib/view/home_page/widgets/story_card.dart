@@ -10,26 +10,23 @@ class StoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 8),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
-          children: [
-            CircleAvatar(
-              radius: 45,
-              backgroundImage:
-                  const AssetImage("assets/images/instagram (1).png"),
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: 45,
+            backgroundImage:
+                const AssetImage("assets/images/instagram (1).png"),
+            child: CircleAvatar(
+              radius: 42,
+              backgroundColor: Colors.white,
               child: CircleAvatar(
-                radius: 42,
-                backgroundColor: Colors.white,
-                child: CircleAvatar(
-                  radius: 38,
-                  backgroundImage: AssetImage(ProfilePhoto),
-                ),
+                radius: 38,
+                backgroundImage: AssetImage(ProfilePhoto),
               ),
             ),
-            Text(Name)
-          ],
-        ),
+          ),
+          Text(Name)
+        ],
       ),
     );
   }

@@ -3,10 +3,16 @@ import 'package:instagram_clone/database/database.dart';
 import 'package:instagram_clone/utils/color_constant/color_constants.dart';
 import 'package:instagram_clone/view/home_page/widgets/post_card.dart';
 import 'package:instagram_clone/view/home_page/widgets/story_card.dart';
+import 'package:instagram_clone/view/message_screen/message_screen.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,29 +27,39 @@ class HomePage extends StatelessWidget {
                 color: ColorConstants.primaryBlack,
                 size: 30,
               )),
-          Stack(children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 12, top: 15),
-              child: Image(
-                image: const AssetImage("assets/images/messenger.png"),
-                height: 26,
-                width: 26,
-                color: ColorConstants.primaryBlack,
-              ),
-            ),
-            const Positioned(
-              right: 8,
-              top: 8,
-              child: CircleAvatar(
-                radius: 9,
-                backgroundColor: Colors.red,
-                child: Text(
-                  "10",
-                  style: TextStyle(color: Colors.white, fontSize: 12),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MessageScreen(),
+                  ));
+              setState(() {});
+            },
+            child: Stack(children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 12, top: 15),
+                child: Image(
+                  image: const AssetImage("assets/images/messenger.png"),
+                  height: 26,
+                  width: 26,
+                  color: ColorConstants.primaryBlack,
                 ),
               ),
-            )
-          ])
+              const Positioned(
+                right: 8,
+                top: 8,
+                child: CircleAvatar(
+                  radius: 9,
+                  backgroundColor: Colors.red,
+                  child: Text(
+                    "10",
+                    style: TextStyle(color: Colors.white, fontSize: 12),
+                  ),
+                ),
+              )
+            ]),
+          )
         ],
         title: SizedBox(
           height: 35,
